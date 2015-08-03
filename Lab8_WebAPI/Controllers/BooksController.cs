@@ -23,7 +23,7 @@ namespace Lab8_WebAPI.Controllers
         // GET: api/Books
         public IQueryable<Book> GetBooks()
         {
-            return db.Books;
+            return db.Books.Include(b => b.Author);
         }
 
 

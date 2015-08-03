@@ -16,9 +16,9 @@ namespace Lab8_WebAPI.Models
         public decimal Price { get; set; }
         public string Genre { get; set; }
 
-        //Foreign Key
-        public int AuthorId { get; set; }
+        ////Foreign Key
+        //public int AuthorId { get; set; }
         //Nav property
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
     }
 }

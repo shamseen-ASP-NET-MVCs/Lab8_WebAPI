@@ -17,6 +17,7 @@ namespace Lab8_WebAPI.Models
     
         public Lab8_WebAPIContext() : base("name=Lab8_WebAPIContext")
         {
+            this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
         public System.Data.Entity.DbSet<Lab8_WebAPI.Models.Author> Authors { get; set; }
