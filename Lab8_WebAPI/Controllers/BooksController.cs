@@ -21,12 +21,19 @@ namespace Lab8_WebAPI.Controllers
         /// Grabs a collection of books from the database.
         /// </summary>
         // GET: api/Books
-        public IQueryable<Book> GetBooks()
+        public IQueryable<BookDTO> GetBooks()
         {
-            return db.Books.Include(b => b.Author);
+            var books = from b in db.Books
+                        select new BookDTO()
+                        {
+                            ID = b.Id,
+                            Title = b.Title,
+                            AuthorName = b.Author.Name
+                        };
+
+            return books;
         }
-
-
+        
         /// <summary>
         /// Looks up a book by ID and grabs from database.
         /// </summary>
@@ -35,11 +42,19 @@ namespace Lab8_WebAPI.Controllers
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> GetBook(int id)
         {
-            Book book = await db.Books.FindAsync(id);
+            var book = await db.Books.Include(b => b.Author).Select(b =>
+               new BookDetailDTO()
+               {
+                   ID = b.Id,
+                   Title = b.Title,
+                   Year = b.Year,
+                   Price = b.Price,
+                   AuthorName = b.Author.Name,
+                   Genre = b.Genre
+               }).SingleOrDefaultAsync(b => b.ID == id);
+
             if (book == null)
-            {
                 return NotFound();
-            }
 
             return Ok(book);
         }
