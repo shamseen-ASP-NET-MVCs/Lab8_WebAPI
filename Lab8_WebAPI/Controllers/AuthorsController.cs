@@ -17,12 +17,20 @@ namespace Lab8_WebAPI.Controllers
     {
         private Lab8_WebAPIContext db = new Lab8_WebAPIContext();
 
+        /// <summary>
+        /// Gets some very important data from the server.
+        /// </summary>
         // GET: api/Authors
         public IQueryable<Author> GetAuthors()
         {
             return db.Authors;
         }
 
+
+        /// <summary>
+        /// Looks up some data by ID.
+        /// </summary>
+        /// <param name="id">The ID of the data.</param>
         // GET: api/Authors/5
         [ResponseType(typeof(Author))]
         public async Task<IHttpActionResult> GetAuthor(int id)
@@ -114,23 +122,6 @@ namespace Lab8_WebAPI.Controllers
         private bool AuthorExists(int id)
         {
             return db.Authors.Count(e => e.Id == id) > 0;
-        }
-
-        /// <summary>
-        /// Gets some very important data from the server.
-        /// </summary>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        /// <summary>
-        /// Looks up some data by ID.
-        /// </summary>
-        /// <param name="id">The ID of the data.</param>
-        public string Get(int id)
-        {
-            return "value";
         }
     }
 }

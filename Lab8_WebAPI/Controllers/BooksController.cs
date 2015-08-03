@@ -17,12 +17,20 @@ namespace Lab8_WebAPI.Controllers
     {
         private Lab8_WebAPIContext db = new Lab8_WebAPIContext();
 
+        /// <summary>
+        /// Grabs a collection of books from the database.
+        /// </summary>
         // GET: api/Books
         public IQueryable<Book> GetBooks()
         {
             return db.Books;
         }
 
+
+        /// <summary>
+        /// Looks up a book by ID and grabs from database.
+        /// </summary>
+        /// <param name="id">The ID of the data.</param>
         // GET: api/Books/5
         [ResponseType(typeof(Book))]
         public async Task<IHttpActionResult> GetBook(int id)
@@ -114,23 +122,6 @@ namespace Lab8_WebAPI.Controllers
         private bool BookExists(int id)
         {
             return db.Books.Count(e => e.Id == id) > 0;
-        }
-
-        /// <summary>
-        /// Gets some very important data from the server.
-        /// </summary>
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        /// <summary>
-        /// Looks up some data by ID.
-        /// </summary>
-        /// <param name="id">The ID of the data.</param>
-        public string Get(int id)
-        {
-            return "value";
         }
     }
 }

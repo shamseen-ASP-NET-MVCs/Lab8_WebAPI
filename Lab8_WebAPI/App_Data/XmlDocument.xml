@@ -481,25 +481,25 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:Lab8_WebAPI.Controllers.AuthorsController.Get">
+        <member name="M:Lab8_WebAPI.Controllers.AuthorsController.GetAuthors">
             <summary>
             Gets some very important data from the server.
             </summary>
         </member>
-        <member name="M:Lab8_WebAPI.Controllers.AuthorsController.Get(System.Int32)">
+        <member name="M:Lab8_WebAPI.Controllers.AuthorsController.GetAuthor(System.Int32)">
             <summary>
             Looks up some data by ID.
             </summary>
             <param name="id">The ID of the data.</param>
         </member>
-        <member name="M:Lab8_WebAPI.Controllers.BooksController.Get">
+        <member name="M:Lab8_WebAPI.Controllers.BooksController.GetBooks">
             <summary>
-            Gets some very important data from the server.
+            Grabs a collection of books from the database.
             </summary>
         </member>
-        <member name="M:Lab8_WebAPI.Controllers.BooksController.Get(System.Int32)">
+        <member name="M:Lab8_WebAPI.Controllers.BooksController.GetBook(System.Int32)">
             <summary>
-            Looks up some data by ID.
+            Looks up a book by ID and grabs from database.
             </summary>
             <param name="id">The ID of the data.</param>
         </member>
