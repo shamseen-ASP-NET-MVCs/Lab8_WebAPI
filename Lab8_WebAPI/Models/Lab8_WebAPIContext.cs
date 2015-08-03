@@ -17,6 +17,7 @@ namespace Lab8_WebAPI.Models
     
         public Lab8_WebAPIContext() : base("name=Lab8_WebAPIContext")
         {
+            //writing generated SQL queries to the debug output window so i can actually see it
             this.Database.Log = s => System.Diagnostics.Debug.WriteLine(s);
         }
 
