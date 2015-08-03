@@ -39,7 +39,7 @@ namespace Lab8_WebAPI.Controllers
         /// </summary>
         /// <param name="id">The ID of the data.</param>
         // GET: api/Books/5
-        [ResponseType(typeof(Book))]
+        [ResponseType(typeof(BookDetailDTO))]
         public async Task<IHttpActionResult> GetBook(int id)
         {
             var book = await db.Books.Include(b => b.Author).Select(b =>
