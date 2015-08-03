@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab8_WebAPI.Models
 {
-    class BookDTO
+    public class BookDTO
     {
           public int ID {get;set;}
           public string Title {get;set;}

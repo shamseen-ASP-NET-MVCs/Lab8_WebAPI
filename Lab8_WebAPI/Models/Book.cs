@@ -17,8 +17,8 @@ namespace Lab8_WebAPI.Models
         public string Genre { get; set; }
 
         ////Foreign Key
-        //public int AuthorId { get; set; }
+        public int AuthorId { get; set; }
         //Nav property
-        public virtual Author Author { get; set; }
+        public Author Author { get; set; }
     }
 }
